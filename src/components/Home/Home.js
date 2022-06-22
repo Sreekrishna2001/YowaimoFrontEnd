@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className='homeLayout'>
       {console.log("fwef")}
-        {homepage.map(anime=><AnimeCard cover={anime.cover} name={anime.anime}/>)}
+        {homepage.map(anime=><AnimeCard key={anime.anime} cover={anime.cover} name={anime.anime}/>)}
     </div>
   )
 }
