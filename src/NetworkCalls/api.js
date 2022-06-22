@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const BASE_URL = 'http://localhost:5000/'
+const BASE_URL_LOCAL = 'http://localhost:5000/'
+const BASE_URL_DEPLOYED = 'https://saikou.herokuapp.com/'
 
 export const makeRequest = async(method,uri,params = {})=>{
-    return JSON.parse(await (await axios.get(BASE_URL+uri)).data)
+    return JSON.parse(await (await axios.get(BASE_URL_DEPLOYED+uri)).data)
 }
