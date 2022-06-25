@@ -10,7 +10,9 @@ export default function Header() {
         if (search.trim() === "") {
             alert("Type Something")
         }
-        navigate(`/search/${search}`)
+        else {
+            navigate(`/search/${search}`)
+        }
     }
 
     return (
@@ -22,9 +24,9 @@ export default function Header() {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <form className="form-inline my-2 my-lg-0">
+                <form className="form-inline my-2 my-lg-0" onSubmit={onSearch}>
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" onKeyUp={(e) => { setSearch(e.target.value) }} />
-                    <span className="btn btn-outline-success my-2 my-sm-0" onClick={onSearch}>Search</span>
+                    <button className="btn btn-outline-success my-2 my-sm-0" type='submit'>Search</button>
                 </form>
             </div>
         </nav>
