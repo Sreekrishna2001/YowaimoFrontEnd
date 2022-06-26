@@ -1,39 +1,45 @@
 import React, { useEffect, useState } from 'react'
-import { makeRequest } from '../../NetworkCalls/api'
-import AnimeCard from '../AnimeCard/AnimeCard'
-function AnimeInfo({name}) {
-    const [AnimeInfo,setAnimeInfo] = useState()
-    useEffect(()=>{
-        const fetchInfo = async()=>{
-            setAnimeInfo(await makeRequest('GET',`animeinfo/${name}`)[0] )
+import { useParams } from 'react-router-dom'
+import { searchRequest } from '../../NetworkCalls/api'
+
+export default function AnimeInfo() {
+    const { animeName } = useParams()
+    let searchAnimeName = animeName.replace(/[^a-z0-9 -]/gi, '')
+    searchAnimeName = searchAnimeName.replaceAll(' ', '-')
+    console.log(searchAnimeName)
+    const [animeInfo, setAnimeInfo] = useState(null)
+
+    useEffect(() => {
+        const fetchInfo = async () => {
+            setAnimeInfo((await searchRequest('GET', `animeinfo/${searchAnimeName}`))[0])
         }
         fetchInfo()
-    },[])
+    })
 
-    const EpButton = (epNo)=>{
+    const InfoUpperHalf = () => {
         return (
-            <div>
-                <button className='EpButton'>{epNo}</button>
+            <div className='container mt-3'>
+                <h3 className=''>{animeName}</h3>
+                <p className='text-danger'>Type: <span className='text-dark'>{animeInfo.type}</span></p>
+                <p className='text-danger'>Plot Summary: <span className='text-dark'>{animeInfo.plot}</span></p>
+                <p className='text-danger'>Genre: <span className='text-dark'>{animeInfo.genre}</span></p>
             </div>
         )
     }
-    const InfoUpperHalf = ()=>{
+
+    const GetEpisodes = () => {
         return (
-            <div>
-                {/* <AnimeCard cover={} name={} /> */}
-                <div>
-                    <p>{AnimeInfo.type}</p>
-                    <p>{AnimeInfo.plot}</p>
-                    <p>{AnimeInfo.genre}</p>
-                </div>
-            </div>
+            [...Array(animeInfo.episodes_released)].map((e, i) => <button key={i + 1} className='btn btn-success col-md-2 m-1'>Episode - {i + 1}</button>)
         )
     }
-  return (
-    <div>
-        <InfoUpperHalf />
-    </div>
-  )
+
+    return (
+        <div>
+            {animeInfo !== null ? <InfoUpperHalf /> : ""}
+            {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
+            <div className='text-center mb-2'>
+                {animeInfo !== null ? <GetEpisodes /> : ""}
+            </div>
+        </div>
+    )
 }
-
-export default AnimeInfo

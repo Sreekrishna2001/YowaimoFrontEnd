@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/search/:animeName" element={<SearchAnime />} />
+          <Route exact path="/anime/:animeName" element={<AnimeInfo />} />
         </Routes>
       </div>
       <Footer />
