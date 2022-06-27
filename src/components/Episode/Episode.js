@@ -3,16 +3,15 @@ import { useParams } from "react-router-dom";
 import { BASE_URL_DEPLOYED } from '../../NetworkCalls/api';
 import './Episode.css'
 
-export default function Episode() {
-    const { animeName, episodeNo } = useParams()
+export default function Episode({ animeName, episodeNo }) {
     let searchAnimeName = animeName.replace(/[^a-z0-9 -]/gi, '')
     searchAnimeName = searchAnimeName.replaceAll(' ', '-')
     const url = `${BASE_URL_DEPLOYED}${searchAnimeName}/${episodeNo}`;
 
     return (
-        <div className='container mt-3'>
-            <h3 className='border-bottom mb-2'>{animeName} Episode {episodeNo}</h3>
-            <div className="text-center"><iframe className="episode-iframe" src={url} title={animeName}></iframe></div>
-        </div>
+        <>
+            <h3 className='border-bottom mb-2'> Episode {episodeNo}</h3>
+            <iframe src={url} title={animeName} scrolling='no' allowFullScreen width="900px" height= "600px"></iframe>
+        </>
     )
 }
