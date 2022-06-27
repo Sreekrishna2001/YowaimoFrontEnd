@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import AnimeCard from './components/AnimeCard/AnimeCard';
 import './App.css';
 import Home from './components/Home/Home';
 import AnimeInfo from './components/AnimeInfo/AnimeInfo';
 import SearchAnime from './components/SearchAnime/SearchAnime';
+import Episode from './components/Episode/Episode';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -17,6 +17,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/search/:animeName" element={<SearchAnime />} />
           <Route exact path="/anime/:animeName" element={<AnimeInfo />} />
+          <Route exact path="/anime/:animeName/:episodeNo" element={<Episode />} />
         </Routes>
       </div>
       <Footer />

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { searchRequest } from '../../NetworkCalls/api'
+import { useNavigate } from 'react-router-dom';
 
 export default function AnimeInfo() {
+    const navigate = useNavigate();
     const { animeName } = useParams()
     let searchAnimeName = animeName.replace(/[^a-z0-9 -]/gi, '')
     searchAnimeName = searchAnimeName.replaceAll(' ', '-')
-    console.log(searchAnimeName)
     const [animeInfo, setAnimeInfo] = useState(null)
 
     useEffect(() => {
@@ -29,7 +30,7 @@ export default function AnimeInfo() {
 
     const GetEpisodes = () => {
         return (
-            [...Array(animeInfo.episodes_released)].map((e, i) => <button key={i + 1} className='btn btn-success col-md-2 m-1'>Episode - {i + 1}</button>)
+            [...Array(animeInfo.episodes_released)].map((e, i) => <button key={i + 1} onClick={(e) => { navigate(`${i + 1}`) }} className='btn btn-success col-md-2 m-1'>Episode - {i + 1}</button>)
         )
     }
 
