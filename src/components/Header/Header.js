@@ -8,7 +8,7 @@ export default function Header() {
     let navigate = useNavigate()
     const onSearch = () => {
         if (search.trim() === "") {
-            alert("Type Something")
+            return false
         }
         else {
             navigate(`/search/${search}`)
@@ -25,7 +25,7 @@ export default function Header() {
             </button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <form className="form-inline my-2 my-lg-0" onSubmit={onSearch}>
-                    <input className="form-control mr-sm-2" type="text" placeholder="Search" onKeyUp={(e) => { setSearch(e.target.value) }} />
+                    <input className="form-control mr-sm-2" type="text" placeholder="Search" required onKeyUp={(e) => { setSearch(e.target.value) }} />
                     <button className="btn btn-outline-success my-2 my-sm-0" type='submit'>Search</button>
                 </form>
             </div>
