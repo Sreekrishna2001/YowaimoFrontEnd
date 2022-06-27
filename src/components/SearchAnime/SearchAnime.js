@@ -13,7 +13,7 @@ export default function SearchAnime() {
             setSearchData(await searchRequest('GET', `search/${animeName}`))
         }
         fetchData()
-    })
+    }, [])
 
     return (
         <>
