@@ -1,8 +1,9 @@
+@media only screen and (max-width: 600px) {
 .homeLayout{
     margin: auto auto;
     width: 600px;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto;
     gap: 5px;   
     /* background-color: #2fc4c4; */
     /* padding: 10px; */    
@@ -15,4 +16,25 @@
     /* color: white; */
     padding: 3px 0;
     /* font-size: 30px; */
+}
+}
+@media only screen and (min-width: 600px) {
+    .homeLayout{
+        margin: auto auto;
+        width: 600px;
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        gap: 5px;   
+        /* background-color: #2fc4c4; */
+        /* padding: 10px; */    
+    }
+    .homeLayout > div{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-align: center;
+        /* color: white; */
+        padding: 3px 0;
+        /* font-size: 30px; */
+    }
 }
