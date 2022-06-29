@@ -15,7 +15,7 @@ export default function Header() {
     return (
         <nav className="navbar navbar-expand-md navbar-light bg-light">
             <a className="navbar-brand" href="/">
-                <h3>SAIKOU</h3>
+                <h3>Yowai Mo 🤞</h3>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
