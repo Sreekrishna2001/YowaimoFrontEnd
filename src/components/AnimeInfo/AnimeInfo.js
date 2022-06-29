@@ -15,7 +15,8 @@ export default function AnimeInfo() {
             setAnimeInfo((await searchRequest('GET', `animeinfo/${searchAnimeName}`))[0])
         }
         fetchInfo()
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
 
     const InfoUpperHalf = () => {
         return (

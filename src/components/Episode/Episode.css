@@ -1,10 +1,20 @@
-.responsive-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-  }
-
+@media only screen and (min-width: 600px) {
+    .ifrwrapper{
+        height: 650px;
+        width: auto;
+    }
+    .ifrclass{
+        height: 100%;
+        width: 100%
+    }
+}
+@media only screen and (max-width: 600px) {
+    .ifrwrapper{
+        height: 200px;
+        width: auto;
+    }
+    .ifrclass{
+        height: 100%;
+        width: 100%
+    }   
+}
