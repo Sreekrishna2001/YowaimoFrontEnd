@@ -15,7 +15,7 @@ export default function AnimeInfo() {
             setAnimeInfo((await searchRequest('GET', `animeinfo/${searchAnimeName}`))[0])
         }
         fetchInfo()
-    }, [])
+    })
 
     const InfoUpperHalf = () => {
         return (

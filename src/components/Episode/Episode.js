@@ -10,7 +10,11 @@ export default function Episode({ animeName, episodeNo }) {
     return (
         <>
             <h3 className='border-bottom mb-2'> Episode {episodeNo}</h3>
-            <iframe src={url} title={animeName} scrolling='no' allowFullScreen width="900px" height="600px"></iframe>
+            
+            <div class="container">
+            {/* <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe> */}
+            <iframe src={url} title={animeName} scrolling='no' allowFullScreen ></iframe>
+            </div>
         </>
     )
 }

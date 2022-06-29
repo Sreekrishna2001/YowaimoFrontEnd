@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL_LOCAL = 'http://localhost:5000/'
+// const BASE_URL_LOCAL = 'http://localhost:5000/'s
 export const BASE_URL_DEPLOYED = 'https://saikou.herokuapp.com/'
 
 export const makeRequest = async (method, uri, params = {}) => {
