@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { searchRequest } from '../../NetworkCalls/api'
 import Episode from '../Episode/Episode';
+import Loader from '../Loader/Loader';
 import './AnimeInfo.css'
 
 export default function AnimeInfo() {
@@ -45,13 +46,24 @@ export default function AnimeInfo() {
         )
     }
 
+    const PageLoader = () => {
+        return (
+            <>
+                {animeInfo === null ? <Loader /> : ""}
+            </>
+        )
+    }
+
     return (
-        <div>
-            {animeInfo !== null ? <InfoUpperHalf /> : ""}
-            {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
-            <div className='container text-center'>
-                {animeInfo !== null ? <GetEpisodes /> : ""}
+        <>
+            <PageLoader />
+            <div>
+                {animeInfo !== null ? <InfoUpperHalf /> : ""}
+                {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
+                <div className='container text-center'>
+                    {animeInfo !== null ? <GetEpisodes /> : ""}
+                </div>
             </div>
-        </div>
+        </>
     )
 }

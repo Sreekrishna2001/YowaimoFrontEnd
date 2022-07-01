@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { makeRequest } from '../../NetworkCalls/api'
 import { Link } from 'react-router-dom';
 import AnimeCard from '../NewAnimeCard/AnimeCard'
-import './Home.css'
 import Loader from '../Loader/Loader'
+import './Home.css'
 
 export default function Home() {
   const [homepage, sethomepage] = useState([])
