@@ -1,3 +1,7 @@
-.EpButton{
-    color:black;
+.prev-next {
+    color: red;
+}
+
+.prev-next:hover {
+    cursor: pointer;
 }

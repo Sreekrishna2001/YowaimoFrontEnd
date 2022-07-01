@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { searchRequest } from '../../NetworkCalls/api'
 import Episode from '../Episode/Episode';
+import Loader from '../Loader/Loader';
+import './AnimeInfo.css'
 
 export default function AnimeInfo() {
     const { animeName } = useParams()
@@ -16,12 +18,17 @@ export default function AnimeInfo() {
         }
         fetchInfo()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
 
     const InfoUpperHalf = () => {
         return (
             <div className='container mt-3'>
                 <h3>{animeName}</h3>
+                <h3 className='text-center border-bottom mb-2'> Episode {epno}</h3>
+                <div className='d-flex justify-content-between'>
+                    {epno > 1 ? <span className='prev-next' onClick={() => setepno(epno - 1)}>&lt;&lt; Episode {epno - 1}</span> : <span></span>}
+                    {epno < animeInfo.episodes_released && <span className='prev-next' onClick={() => setepno(epno + 1)}>Episode {epno + 1} &gt;&gt;</span>}
+                </div>
                 <Episode animeName={animeName} episodeNo={epno} />
                 <p className='text-danger'>Type: <span className='text-dark'>{animeInfo.type}</span></p>
                 <p className='text-danger'>Plot Summary: <span className='text-dark'>{animeInfo.plot}</span></p>
@@ -39,13 +46,24 @@ export default function AnimeInfo() {
         )
     }
 
+    const PageLoader = () => {
+        return (
+            <>
+                {animeInfo === null ? <Loader /> : ""}
+            </>
+        )
+    }
+
     return (
-        <div>
-            {animeInfo !== null ? <InfoUpperHalf /> : ""}
-            {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
-            <div className='text-center'>
-                {animeInfo !== null ? <GetEpisodes /> : ""}
+        <>
+            <PageLoader />
+            <div>
+                {animeInfo !== null ? <InfoUpperHalf /> : ""}
+                {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
+                <div className='container text-center'>
+                    {animeInfo !== null ? <GetEpisodes /> : ""}
+                </div>
             </div>
-        </div>
+        </>
     )
 }

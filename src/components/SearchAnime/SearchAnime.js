@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { searchRequest } from "../../NetworkCalls/api";
 import AnimeCard from '../NewAnimeCard/AnimeCard'
+import Loader from '../Loader/Loader'
 import '../Home/Home.css'
 
 export default function SearchAnime() {
@@ -14,10 +15,20 @@ export default function SearchAnime() {
         }
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    }, [])
+
+    const PageLoader = () => {
+        const length = searchData.length;
+        return (
+            <>
+                {length === 0 ? <Loader /> : ""}
+            </>
+        )
+    }
 
     return (
         <>
+            <PageLoader />
             <div className="text-center border-bottom mb-2 bg-dark"><h3 className="text-white">Search Results</h3></div>
             <div className="text-center"><h4>{searchData.length === 0 ? "No Results Found" : ""}</h4></div>
             <div className='row m-0'>
