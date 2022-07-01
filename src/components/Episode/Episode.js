@@ -8,11 +8,8 @@ export default function Episode({ animeName, episodeNo }) {
     const url = `${BASE_URL_DEPLOYED}${searchAnimeName}/${episodeNo}`;
 
     return (
-        <>
-            <h3 className='border-bottom mb-2'> Episode {episodeNo}</h3>
-            <div className="ifrwrapper">
-            <iframe className="ifrclass" src={url} title={animeName} scrolling='no' allowFullScreen frameBorder = '0'></iframe>
-            </div>
-        </>
+        <div className="ifrwrapper">
+            <iframe className="ifrclass" src={url} title={animeName} scrolling='no' allowFullScreen frameBorder='0'></iframe>
+        </div>
     )
 }
