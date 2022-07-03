@@ -17,9 +17,9 @@ export default function Home() {
   const PageLoader = () => {
     const length = homepage.length;
     return (
-      <>
+      <div className='mt-3'>
         {length === 0 ? <Loader /> : ""}
-      </>
+      </div>
     )
   }
 
