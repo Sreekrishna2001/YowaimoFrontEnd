@@ -4,7 +4,7 @@ import axios from "axios";
 export const BASE_URL_DEPLOYED = 'https://saikou.herokuapp.com/'
 
 export const makeRequest = async (method, uri, params = {}) => {
-    return JSON.parse(await (await axios.get(BASE_URL_DEPLOYED + uri)).data)
+    return await (await axios.get(BASE_URL_DEPLOYED + uri)).data
 }
 
 export const searchRequest = async (method, uri, params = {}) => {
