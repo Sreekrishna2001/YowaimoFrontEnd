@@ -20,9 +20,9 @@ export default function SearchAnime() {
     const PageLoader = () => {
         const length = searchData.length;
         return (
-            <>
+            <div className='mt-3'>
                 {length === 0 ? <Loader /> : ""}
-            </>
+            </div>
         )
     }
 

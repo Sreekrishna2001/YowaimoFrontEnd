@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className='mb-2'>
+      <div className='mb-2 content'>
         <Routes>
           <Route exact path="/" element={<Home route='/'/>} />
           <Route exact path="/kdrama" element={<Home route='/kdrama'/>} />

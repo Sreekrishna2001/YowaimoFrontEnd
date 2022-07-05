@@ -47,15 +47,15 @@ export default function AnimeInfo({type}) {
             [...Array(type === 'animeinfo'?animeInfo.episodes_released:animeInfo.total_episodes)].map((e, i) => <button key={i + 1} onClick={(e) => {
                 window.scroll(0, 0)
                 setepno(i + 1)
-            }} className='btn btn-success col-md-2 m-1'>Episode - {i + 1}</button>)
+            }} className='btn btn-success col-md-2 col-6 m-1'>Episode - {i + 1}</button>)
         )
     }
 
     const PageLoader = () => {
         return (
-            <>
+            <div className='mt-3'>
                 {animeInfo === null ? <Loader /> : ""}
-            </>
+            </div>
         )
     }
 
