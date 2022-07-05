@@ -21,6 +21,7 @@ export default function Header() {
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
+            <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
                 <a className="nav-link" href="/">Anime</a>
@@ -29,12 +30,12 @@ export default function Header() {
                 <Link to='/kdrama'><span className="nav-link">Kdrama(BETA)</span></Link>
             </li>
             </ul>
-            <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <span className="form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="text" placeholder="Search" required onKeyUp={(e) => { setSearch(e.target.value) }} />
                     <button className="btn btn-outline-success my-2 my-sm-0" type='submit' onClick={onSearch}>Search</button>
                 </span>
             </div>
+
         </nav>
     )
 }

@@ -6,8 +6,9 @@ import Loader from '../Loader/Loader'
 import './Home.css'
 
 export default function Home({route}) {
-  const [homepage, sethomepage] = useState([])
+  let [homepage, sethomepage] = useState([])
   useEffect(() => {
+    sethomepage([])
     const fetchDataa = async () => {
       sethomepage(route==='/'?JSON.parse(await makeRequest('GET', route)):await makeRequest('GET', route))
     }
