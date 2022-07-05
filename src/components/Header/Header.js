@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import "./Header.css"
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     const [search, setSearch] = new useState("");
@@ -25,7 +26,7 @@ export default function Header() {
                 <a className="nav-link" href="/">Anime</a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/kdrama">Kdrama(BETA)</a>
+                <Link to='/kdrama'><span className="nav-link">Kdrama(BETA)</span></Link>
             </li>
             </ul>
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">

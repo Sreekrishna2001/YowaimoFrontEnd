@@ -12,8 +12,9 @@ export default function Home({route}) {
       sethomepage(route==='/'?JSON.parse(await makeRequest('GET', route)):await makeRequest('GET', route))
     }
     fetchDataa()
+    // window.scroll(0,0)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [route])
 
   const PageLoader = () => {
     const length = homepage.length;
