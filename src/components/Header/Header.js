@@ -16,7 +16,7 @@ export default function Header() {
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <a className="navbar-brand" href="/">
-                <h3 className='text-center text-white'>Yowai mo 🤞</h3>
+                <h3 className='text-center text-white'><img src='https://i.etsystatic.com/32102052/r/il/f4ce90/3531437237/il_340x270.3531437237_ihyg.jpg' alt='icon' height='35vh' width='35vh'/> yowai mo </h3>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
