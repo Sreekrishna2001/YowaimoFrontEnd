@@ -8,16 +8,16 @@ import '../Home/Home.css'
 export default function SearchAnime() {
     const { animeName } = useParams();
     const [searchData, setSearchData] = useState([])
-    const [ksearchData,setKsearchData] = useState([])
+    const [ksearchData, setKsearchData] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             setSearchData(await searchRequest('GET', `search/${animeName}`))
-            setKsearchData(await searchRequest('GET',`kdrama/search/${animeName}`))
+            setKsearchData(await searchRequest('GET', `kdrama/search/${animeName}`))
         }
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [animeName])
 
     const PageLoader = () => {
         const length = searchData.length || ksearchData.length
@@ -30,7 +30,7 @@ export default function SearchAnime() {
 
     return (
         <>
-            <PageLoader  />
+            <PageLoader />
             <div className="text-center border-bottom mb-2 bg-dark"><h3 className="text-white">Anime Search Results</h3></div>
             <div className="text-center"><h4>{searchData.length === 0 ? "No Results Found" : ""}</h4></div>
             <div className='row m-0'>
