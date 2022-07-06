@@ -10,7 +10,7 @@ export default function Home({route}) {
   useEffect(() => {
     sethomepage([])
     const fetchDataa = async () => {
-      sethomepage(route==='/'?JSON.parse(await makeRequest('GET', route)):await makeRequest('GET', route))
+      sethomepage(route==='/'?await makeRequest('GET', route):await makeRequest('GET', route))
     }
     fetchDataa()
     // window.scroll(0,0)
