@@ -1,12 +1,13 @@
 import React from "react";
-import './AnimeCard.css'
 
 export default function AnimeCard({ cover, name }) {
     return (
-        <div className="card">
-            <img className="card-img-top" src={'https://corsproxy.io/?'+encodeURIComponent(cover.replaceAll(' ','%20'))} alt={name} />
-            <div className="card-body">
-                <p className="card-text">{name}</p>
+        <div className="anime-card">
+            <div className="anime-card-img">
+                <img src={'https://corsproxy.io/?'+encodeURIComponent(cover.replaceAll(' ','%20'))} alt={name}  />
+            </div>
+            <div className="anime-card-text" title={name}>
+                {name}
             </div>
         </div>
     )

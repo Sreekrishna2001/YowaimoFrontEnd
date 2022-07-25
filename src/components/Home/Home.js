@@ -28,11 +28,56 @@ export default function Home({route}) {
 
   return (
     <>
+      <section className="first-section">
+        <div className="section-main-title">
+            <h1>The World&apos;s Largest <br /> Anime Collection</h1>
+            <a href="#watchanime" className="view-anime">Watch Now...!</a>
+        </div>
+        <div className="section-features">
+            <div className="each-feature">
+                <div className="feature-logo">
+                    <span className="material-icons"> schedule </span>
+                </div>
+                <div className="feature-text">
+                    Watch new episodes one hour after they air in Japan
+                </div>
+            </div>
+            <div className="each-feature">
+                <div className="feature-logo">
+                    <span className="material-icons"> priority_high </span>
+                </div>
+                <div className="feature-text">
+                    Enjoy access to unlimited ad-free anime
+                </div>
+            </div>
+            <div className="each-feature">
+                <div className="feature-logo">
+                    <span className="material-icons"> description </span>
+                </div>
+                <div className="feature-text">
+                    Read hundreds of chapters across dozens of manga titles
+                </div>
+            </div>
+            <div className="each-feature">
+                <div className="feature-logo">
+                    <span className="material-icons"> store </span>
+                </div>
+                <div className="feature-text">
+                    Fun with exclusive Yowai Mo E-Store content
+                </div>
+            </div>
+        </div>
+      </section>
+      <br />
       < PageLoader />
-      <div className='row m-0 mt-2'>
-        {route==='/'?homepage.map(anime => <div className="col-md-3 col-lg-2 col-6 mb-1" key={anime.anime}> <Link to={`anime/${anime.anime}`}><AnimeCard key={anime.anime} cover={anime.cover} name={anime.anime} /></Link> </div>)
+      <section className="anime-cards" id="watchanime">
+        {route==='/'?homepage.map(anime => 
+          <Link to={`anime/${anime.anime}`} key={anime.anime}>
+            <AnimeCard key={anime.anime} cover={anime.cover} name={anime.anime} />
+          </Link>
+        )
         :homepage.map(anime => <div className="col-md-3 col-lg-2 col-6 mb-1" key={anime.drama}> <Link to={`${anime.drama}`}><AnimeCard key={anime.drama} cover={anime.cover} name={anime.drama} /></Link> </div>)}
-      </div>
+      </section>
     </>
   )
 }

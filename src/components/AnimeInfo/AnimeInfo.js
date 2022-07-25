@@ -24,30 +24,85 @@ export default function AnimeInfo({type}) {
 
     const InfoUpperHalf = () => {
         return (
-            <div className='container mt-3'>
-                <h3>{animeName}</h3>
-                <h3 className='text-center border-bottom mb-2'> Episode {epno}</h3>
-                <div className='d-flex justify-content-between'>
-                    {epno > 1 ? <span className='prev-next' onClick={() => setepno(epno - 1)}>&lt;&lt; Episode {epno - 1}</span> : <span></span>}
-                    {epno < animeInfo.episodes_released && <span className='prev-next' onClick={() => setepno(epno + 1)}>Episode {epno + 1} &gt;&gt;</span>}
+            <>
+                <div className="current-anime-short-info">
+                    {animeName} <sub>Episode - {epno}</sub>
                 </div>
-                <Episode animeName={animeName} episodeNo={epno} type = {type}/>
+                <div className="watch-episode">
+                    <div className="current-anime-episode-tracks">
+                        {epno > 1 ? 
+                            <button className="episode-track" onClick={() => setepno(epno - 1)}>
+                                <span className="material-icons previous"> double_arrow </span>
+                                <span>Episode - {epno - 1}</span>
+                            </button>
+                            : ""   
+                        }
+                        {epno < animeInfo.episodes_released && 
+                            <button className="episode-track" onClick={() => setepno(epno + 1)}>
+                                <span>Episode - {epno + 1}</span>
+                                <span className="material-icons next"> double_arrow </span>
+                            </button>
+                        }
+                    </div>
+                    <div className="current-anime-watch-episode">
+                        {/* <video controls>
+                            <source src="" type="video/mp4" />
+                        </video> */}
+                        <Episode animeName={animeName} episodeNo={epno} type = {type}/>
+                    </div>
+                </div>
+
                 {type === 'animeinfo'?
-                <><p className='text-danger'>Type: <span className='text-dark'>{animeInfo.type}</span></p>
-                <p className='text-danger'>Plot Summary: <span className='text-dark'>{animeInfo.plot}</span></p>
-                <p className='text-danger'>Genre: <span className='text-dark'>{animeInfo.genre}</span></p></>
-                :<p className='text-danger'>Plot Summary: <span className='text-dark'>{animeInfo.summary}</span></p>
+                    <div className="current-anime-info">
+                        <div className="anime-summary">
+                            <div className="anime-summary-title">
+                                Plot Summary
+                            </div> 
+                            <div className="anime-summary-content">
+                                {animeInfo.plot.replace(/Plot Summary:/g, '')}
+                            </div>
+                        </div>
+                        <div className="current-anime-type">
+                            <div className="anime-type-title">
+                                Type
+                            </div>
+                            <div className="anime-type-content">
+                                {animeInfo.type}
+                            </div>
+                        </div>
+                        <div className="current-anime-genre">
+                            <div className="anime-genre-title">
+                                Genre
+                            </div> 
+                            <div className="anime-genre-content">
+                                {animeInfo.genre.split(',').map((genre, index) => {
+                                    if(genre.includes('Genre: '))genre = genre.replace('Genre: ', '')
+                                    return <button className="current-anime-each-genre" key={index}>{genre}</button>
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    <div className="anime-summary">
+                        <div className="anime-summary-title">
+                            Plot Summary
+                        </div> 
+                        <div className="anime-summary-content">
+                            {animeInfo.summary.replace(/Plot Summary:/g, '')}
+                        </div>
+                    </div>
                 }
-            </div>
+            </>
         )
     }
 
     const GetEpisodes = () => {
         return (
-            [...Array(type === 'animeinfo'?animeInfo.episodes_released:animeInfo.total_episodes)].map((e, i) => <button key={i + 1} onClick={(e) => {
+            [...Array(type === 'animeinfo'?animeInfo.episodes_released:animeInfo.total_episodes)].map((e, i) => 
+            <button key={i + 1} onClick={(e) => {
                 window.scroll(0, 0)
                 setepno(i + 1)
-            }} className='btn btn-success col-md-2 col-6 m-1'>Episode - {i + 1}</button>)
+            }} className="episode-number">Episode - {i + 1}</button>)
         )
     }
 
@@ -62,13 +117,15 @@ export default function AnimeInfo({type}) {
     return (
         <>
             <PageLoader />
-            <div>
+            <section className="anime-episode-info-list">
                 {animeInfo !== null ? <InfoUpperHalf /> : ""}
-                {animeInfo !== null ? <div className='text-center border-bottom mb-2'><h4>Episodes</h4></div> : ""}
-                <div className='container text-center'>
-                    {animeInfo !== null ? <GetEpisodes /> : ""}
+                <div className="episodes-list">
+                    {animeInfo !== null ? <div className="episode-list-title"> Episodes </div> : ""}
+                    <div className="episode-list-content">
+                        {animeInfo !== null ? <GetEpisodes /> : ""}
+                    </div>
                 </div>
-            </div>
+            </section>
         </>
     )
 }
