@@ -10,7 +10,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className='mb-2 content'>
         <Routes>
           <Route exact path="/" element={<Home route='/'/>} />
           <Route exact path="/kdrama" element={<Home route='/kdrama'/>} />
@@ -18,7 +17,6 @@ function App() {
           <Route exact path="/search/:animeName" element={<SearchAnime />} />
           <Route exact path="/anime/:animeName" element={<AnimeInfo type='animeinfo'/>} />
         </Routes>
-      </div>
       <Footer />
     </BrowserRouter>
   );
