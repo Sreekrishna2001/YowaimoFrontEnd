@@ -22,10 +22,33 @@ export default function Header() {
             <div className="anime-kdrama">
                 <div className="search-bar-container">
                     <div className="searchBar">
-                    <input className="searchQueryInput" type="search" name="search_anime" placeholder="Search Anime..." maxLength="100" aria-autocomplete="both" aria-haspopup="false" autoCapitalize="off" autoComplete="off" autoCorrect="off" autoFocus="" role="searchbox" spellCheck="true" title="Search Anime" aria-label="Search Anime" onKeyUp={(e) => { setSearch(e.target.value) }} />
-                    <button id="searchQuerySubmit" type="submit" onClick={onSearch}>
-                        <span className="material-icons"> search </span>
-                    </button>
+                        <input 
+                        className="searchQueryInput" 
+                        type="search" 
+                        name="search_anime" 
+                        placeholder="Search Anime..." 
+                        maxLength="100" 
+                        aria-autocomplete="both" 
+                        aria-haspopup="false" 
+                        autoCapitalize="off" 
+                        autoComplete="off" 
+                        autoCorrect="off" 
+                        autoFocus="" 
+                        role="searchbox" 
+                        spellCheck="true" 
+                        title="Search Anime" 
+                        aria-label="Search Anime" 
+                        onKeyUp={(e) => { setSearch(e.target.value) }} 
+                        // onKeyPress={(e) => {
+                        //     if(e.key === 'Enter'){
+                        //         onSearch()
+                        //     } 
+                        //      }}
+                        onKeyPress = {onSearch}
+                        />
+                        <button id="searchQuerySubmit" type="submit" onClick={onSearch}>
+                            <span className="material-icons"> search </span>
+                        </button>
                     </div>
                 </div>
             </div>
