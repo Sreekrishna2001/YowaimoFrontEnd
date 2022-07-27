@@ -406,7 +406,7 @@ button.current-anime-each-genre:hover {
 
 .episode-list-content {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
     gap: 1rem;
     max-height: 15rem;
     overflow-y: scroll;
