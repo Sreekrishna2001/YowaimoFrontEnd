@@ -41,7 +41,7 @@ export default function SearchAnime() {
                         : ""
                     }
                 </div>
-                <section className="anime-cards" id="watchanime">
+                <section className="grid lg:grid-cols-5 justify-items-center gap-10 m-8 grid-cols-1" id="watchanime">
                     {searchData.map(anime => 
                         <Link to={`../../anime/${anime.anime}`} key={anime.anime}>
                             <AnimeCard key={anime.anime} cover={anime.thumbnail} name={anime.anime} />

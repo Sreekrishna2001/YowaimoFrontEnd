@@ -70,7 +70,7 @@ export default function Home({route}) {
       </section>
       <br />
       < PageLoader />
-      <section className="anime-cards" id="watchanime">
+      <section className="grid lg:grid-cols-5 justify-items-center gap-10 m-8 grid-cols-1" id="watchanime">
         {route==='/'?homepage.map(anime => 
           <Link to={`anime/${anime.anime}`} key={anime.anime}>
             <AnimeCard key={anime.anime} cover={anime.cover} name={anime.anime} />
