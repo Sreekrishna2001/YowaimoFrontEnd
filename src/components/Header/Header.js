@@ -12,7 +12,7 @@ export default function Header() {
     }
 
     return (
-        <nav>
+        <nav className='sticky top-0 z-50'>
             <div className="logo-title">
                 <a href="/" className="logo">
                     <img src="https://i.etsystatic.com/32102052/r/il/f4ce90/3531437237/il_340x270.3531437237_ihyg.jpg" alt="Yowai Mo" />
